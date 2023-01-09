@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
+import { BiTime } from "react-icons/bi";
+import { TfiReload } from "react-icons/tfi";
 import { Link } from "react-router-dom";
 
 const ServiceDetails = () => {
+  const [packageName, setPackage] = useState("basic");
   return (
     <section className="py-[60px] bg-[#f5f7f9]">
       <div className="px-5 md:px-0 mx-auto container">
@@ -48,21 +51,6 @@ const ServiceDetails = () => {
               alt="event"
             />
 
-            <div className="flex items-center justify-center gap-[10px] mt-7">
-              <button className="flex items-center gap-2 px-6 py-1 bg-white border font-semibold cursor-pointer event-public-button transition">
-                <img
-                  className="w-4"
-                  src="/img/icons/bookmark-white.png"
-                  alt="bookmark"
-                />
-                <span className="text-base text-dark">Save</span>
-              </button>
-              <button className="flex items-center gap-2 px-6 py-1 bg-white border font-semibold cursor-pointer event-public-button transition">
-                <img className="w-4" src="/img/icons/share.png" alt="share" />
-                <span className="text-base text-dark">Share</span>
-              </button>
-            </div>
-
             <div className="mt-10">
               <h3 className="mb-5 text-lg">About This Event</h3>
               <p className="leading-6">
@@ -98,95 +86,123 @@ const ServiceDetails = () => {
 
           {/* <!-- event details start --> */}
           <div className="w-full md:w-[40%] xl:w-[30%] py-4 rounded-md border bg-white h-fit">
-            <h3 className="text-lg pb-5 px-5 border-b">Event Details</h3>
+            <h3 className="text-lg pb-5 px-5 border-b">Service Details</h3>
             <div className="px-5">
-              {/* <!-- countdown start --> */}
-              <div className="grid grid-cols-4 gap-1 mt-5">
-                <div className="bg-primary rounded-sm text-center">
-                  <h3 className="mt-5 text-white text-1xl font-regular">143</h3>
-                  <h4 className="text-white text-xs font-medium mb-[10px]">
-                    DAYS
-                  </h4>
+              {/* <!-- package name start --> */}
+              <div className="flex mt-5 gap-1">
+                <div
+                  className="rounded-sm text-center w-full border cursor-pointer"
+                  onClick={() => setPackage("basic")}
+                >
+                  <h3
+                    className={`py-3 border-b-2 border-transparent text-1xl text-gray-500 font-bold ${
+                      packageName === "basic" && "text-primary border-primary"
+                    }`}
+                  >
+                    Basic
+                  </h3>
                 </div>
-                <div className="bg-primary rounded-sm text-center">
-                  <h3 className="mt-5 text-white text-1xl font-regular">3</h3>
-                  <h4 className="text-white text-xs font-medium mb-[10px]">
-                    HOURS
-                  </h4>
+                <div
+                  className="rounded-sm text-center w-full border cursor-pointer"
+                  onClick={() => setPackage("standard")}
+                >
+                  <h3
+                    className={`py-3 border-b-2 border-transparent text-1xl text-gray-500 font-bold ${
+                      packageName === "standard" &&
+                      "text-primary border-primary"
+                    }`}
+                  >
+                    Standard
+                  </h3>
                 </div>
-                <div className="bg-primary rounded-sm text-center">
-                  <h3 className="mt-5 text-white text-1xl font-regular">38</h3>
-                  <h4 className="text-white text-xs font-medium mb-[10px]">
-                    MINUTES
-                  </h4>
-                </div>
-                <div className="bg-primary rounded-sm text-center">
-                  <h3 className="mt-5 text-white text-1xl font-regular">32</h3>
-                  <h4 className="text-white text-xs font-medium mb-[10px]">
-                    SECONDS
-                  </h4>
+                <div
+                  className="rounded-sm text-center w-full border cursor-pointer"
+                  onClick={() => setPackage("premium")}
+                >
+                  <h3
+                    className={`py-3 border-b-2 border-transparent text-1xl ${
+                      packageName === "premium" && "text-primary border-primary"
+                    } text-gray-500 font-bold`}
+                  >
+                    Premium
+                  </h3>
                 </div>
               </div>
-              {/* <!-- countdown end --> */}
+              {/* <!-- package name end --> */}
 
-              {/* <!-- list start --> */}
+              {/* <!-- package details start --> */}
               <div className="mt-10">
-                <div className="flex gap-[10px] mb-9">
-                  <div className="h-10 w-10 rounded-full bg-light flex items-center justify-center">
-                    <img className="w-5" src="/img/icons/man.png" alt="user" />
-                  </div>
+                {packageName === "basic" && (
                   <div>
-                    <span>Organised by</span>
-                    <h4 className="my-2 text-base font-medium">
-                      Story Tellers
-                    </h4>
-                    <Link className="font-medium text-primary" to="#">
-                      View Profile
-                    </Link>
+                    <div className="flex items-center justify-between mb-7">
+                      <h3 className="text-gray-700 text-lg">RUBY</h3>
+                      <h3 className="text-gray-700 text-lg">$90</h3>
+                    </div>
+                    <p className="font-semibold text-sm text-gray-600 mb-8">
+                      Wordpress and Theme installation + One page scrolling
+                      design + Contact form + Social shares
+                    </p>
+
+                    <div className="flex items-center gap-5 mb-6">
+                      <h4 className="flex items-center gap-1 text-gray-700">
+                        <BiTime />
+                        <span>3 Days Delivery</span>
+                      </h4>
+                      <h4 className="flex items-center gap-1 text-gray-700">
+                        <TfiReload />
+                        <span>3 Revisions</span>
+                      </h4>
+                    </div>
                   </div>
-                </div>
-                <div className="flex gap-[10px] mb-9">
-                  <div className="h-10 w-10 rounded-full bg-light flex items-center justify-center">
-                    <img className="w-5" src="/img/icons/man.png" alt="user" />
-                  </div>
+                )}
+
+                {packageName === "standard" && (
                   <div>
-                    <span>Organised by</span>
-                    <h4 className="my-2 text-base font-medium">
-                      Story Tellers
-                    </h4>
-                    <Link className="font-medium text-primary" to="#">
-                      View Profile
-                    </Link>
+                    <div className="flex items-center justify-between mb-7">
+                      <h3 className="text-gray-700 text-lg">Standard</h3>
+                      <h3 className="text-gray-700 text-lg">$90</h3>
+                    </div>
+                    <p className="font-semibold text-sm text-gray-600 mb-8">
+                      Wordpress and Theme installation + One page scrolling
+                      design + Contact form + Social shares
+                    </p>
+
+                    <div className="flex items-center gap-5 mb-6">
+                      <h4 className="flex items-center gap-1 text-gray-700">
+                        <BiTime />
+                        <span>3 Days Delivery</span>
+                      </h4>
+                      <h4 className="flex items-center gap-1 text-gray-700">
+                        <TfiReload />
+                        <span>3 Revisions</span>
+                      </h4>
+                    </div>
                   </div>
-                </div>
-                <div className="flex gap-[10px] mb-9">
-                  <div className="h-10 w-10 rounded-full bg-light flex items-center justify-center">
-                    <img className="w-5" src="/img/icons/man.png" alt="user" />
-                  </div>
+                )}
+
+                {packageName === "premium" && (
                   <div>
-                    <span>Organised by</span>
-                    <h4 className="my-2 text-base font-medium">
-                      Story Tellers
-                    </h4>
-                    <Link className="font-medium text-primary" to="#">
-                      View Profile
-                    </Link>
+                    <div className="flex items-center justify-between mb-7">
+                      <h3 className="text-gray-700 text-lg">Premium</h3>
+                      <h3 className="text-gray-700 text-lg">$90</h3>
+                    </div>
+                    <p className="font-semibold text-sm text-gray-600 mb-8">
+                      Wordpress and Theme installation + One page scrolling
+                      design + Contact form + Social shares
+                    </p>
+
+                    <div className="flex items-center gap-5 mb-6">
+                      <h4 className="flex items-center gap-1 text-gray-700">
+                        <BiTime />
+                        <span>3 Days Delivery</span>
+                      </h4>
+                      <h4 className="flex items-center gap-1 text-gray-700">
+                        <TfiReload />
+                        <span>3 Revisions</span>
+                      </h4>
+                    </div>
                   </div>
-                </div>
-                <div className="flex gap-[10px] mb-9">
-                  <div className="h-10 w-10 rounded-full bg-light flex items-center justify-center">
-                    <img className="w-5" src="/img/icons/man.png" alt="user" />
-                  </div>
-                  <div>
-                    <span>Organised by</span>
-                    <h4 className="my-2 text-base font-medium">
-                      Story Tellers
-                    </h4>
-                    <Link className="font-medium text-primary" to="#">
-                      View Profile
-                    </Link>
-                  </div>
-                </div>
+                )}
 
                 <Link
                   to="#"
