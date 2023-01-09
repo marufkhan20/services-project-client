@@ -1,10 +1,15 @@
 import "./App.css";
-import Home from "./pages/Home";
+import FooterArea from "./components/common/FooterArea";
+import Navigation from "./components/common/Navigation";
+import ServiceDetails from "./pages/ServiceDetails";
 
 function App() {
   return (
     <div>
-      <Home />
+      <Navigation />
+      {/* <Home /> */}
+      <ServiceDetails />
+      <FooterArea />
     </div>
   );
 }

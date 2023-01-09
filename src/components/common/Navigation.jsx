@@ -3,7 +3,7 @@ import React from "react";
 const Navigation = () => {
   return (
     <section className="bg-white border-b-2 py-5">
-      <div className="w-[80%] mx-auto">
+      <div className="px-5 md:px-0 md:w-[80%] mx-auto">
         <div className="flex justify-between items-center">
           <div className="logo">
             <a href="/">
