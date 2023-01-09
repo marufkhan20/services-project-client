@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const BannerArea = () => {
   return (
@@ -20,12 +21,12 @@ const BannerArea = () => {
                 <br />
                 yet that. Incommode delighted he resolving sportsmen.
               </p>
-              <a
+              <Link
                 className="bg-primary text-white py-[14px] px-9 inline-block uppercase text-[13px] font-semibold mt-4 transition hover:bg-white hover:text-secondary rounded-md"
-                href="#"
+                to="#"
               >
                 get details
-              </a>
+              </Link>
             </div>
             <div className="bg-white text-[#0e2b3d] py-[60px] px-9 z-50 relative rounded-xl form w-full lg:w-2/5">
               <h3 className="text-2xl text-center mb-5">Appointment</h3>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Navigation = () => {
   return (
@@ -6,63 +7,76 @@ const Navigation = () => {
       <div className="px-5 md:px-0 md:w-[80%] mx-auto">
         <div className="flex justify-between items-center">
           <div className="logo">
-            <a href="/">
-              <img className="h-12" src="./img/logo.png" alt="logo" />
-            </a>
+            <Link to="/">
+              <img className="h-12" src="/img/logo.png" alt="logo" />
+            </Link>
           </div>
           <div className="hidden md:block">
             <ul className="flex gap-8">
               <li>
-                <a
+                <Link
                   className="text-secondary transition hover:text-[#f35a38] text-[13px] font-bold"
-                  href="#"
+                  to="#"
                 >
                   HOME
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="text-secondary transition hover:text-[#f35a38] text-[13px] font-bold"
-                  href="#about"
+                  to="#about"
                 >
                   ABOUT
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="text-secondary transition hover:text-[#f35a38] text-[13px] font-bold"
-                  href="#services"
+                  to="#services"
                 >
                   SERVICES
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="text-secondary transition hover:text-[#f35a38] text-[13px] font-bold"
-                  href="#projects"
+                  to="#projects"
                 >
                   PROJECTS
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="text-secondary transition hover:text-[#f35a38] text-[13px] font-bold"
-                  href="#blog"
+                  to="#blog"
                 >
                   BLOG
-                </a>
+                </Link>
               </li>
               <li>
-                <a
+                <Link
                   className="text-secondary transition hover:text-[#f35a38] text-[13px] font-bold"
-                  href="#contact"
+                  to="#contact"
                 >
                   CONTACT
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
-          <div>{/* add authentication icon later */}</div>
+          <div className="flex items-center gap-6">
+            <Link
+              className="bg-primary text-white py-[10px] px-7 inline-block uppercase text-[13px] font-semibold mt-4 transition border border-transparent hover:border-light hover:bg-white hover:text-secondary rounded-md"
+              to="/login"
+            >
+              Login
+            </Link>
+            <Link
+              className="bg-primary text-white py-[10px] px-7 inline-block uppercase text-[13px] font-semibold mt-4 transition border border-transparent hover:border-light hover:bg-white hover:text-secondary rounded-md"
+              to="/register"
+            >
+              Register
+            </Link>
+          </div>
         </div>
       </div>
     </section>

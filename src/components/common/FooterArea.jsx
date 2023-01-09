@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const FooterArea = () => {
   return (
@@ -20,35 +21,35 @@ const FooterArea = () => {
               <li>
                 <img
                   className="w-4 cursor-pointer opacity-70 transition img-white hover:opacity-100"
-                  src="./img/icons/facebook.png"
+                  src="/img/icons/facebook.png"
                   alt="facebook"
                 />
               </li>
               <li>
                 <img
                   className="w-4 cursor-pointer opacity-70 transition img-white hover:opacity-100"
-                  src="./img/icons/twitter.png"
+                  src="/img/icons/twitter.png"
                   alt="facebook"
                 />
               </li>
               <li>
                 <img
                   className="w-4 cursor-pointer opacity-70 transition img-white hover:opacity-100"
-                  src="./img/icons/github.png"
+                  src="/img/icons/github.png"
                   alt="facebook"
                 />
               </li>
               <li>
                 <img
                   className="w-4 cursor-pointer opacity-70 transition img-white hover:opacity-100"
-                  src="./img/icons/facebook.png"
+                  src="/img/icons/facebook.png"
                   alt="facebook"
                 />
               </li>
               <li>
                 <img
                   className="w-4 cursor-pointer opacity-70 transition img-white hover:opacity-100"
-                  src="./img/icons/twitter.png"
+                  src="/img/icons/twitter.png"
                   alt="facebook"
                 />
               </li>
@@ -61,36 +62,36 @@ const FooterArea = () => {
               </h4>
               <ul>
                 <li>
-                  <a
+                  <Link
                     className="text-[#ccc] font-medium text-[15px] mb-4 leading-[26px] block"
-                    href="#"
+                    to="#"
                   >
                     SEO Marketing
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     className="text-[#ccc] font-medium text-[15px] mb-4 leading-[26px] block"
-                    href="#"
+                    to="#"
                   >
                     Pay Per Click
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     className="text-[#ccc] font-medium text-[15px] mb-4 leading-[26px] block"
-                    href="#"
+                    to="#"
                   >
                     Social Media
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     className="text-[#ccc] font-medium text-[15px] mb-4 leading-[26px] block"
-                    href="#"
+                    to="#"
                   >
                     SEO Audit
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -98,36 +99,36 @@ const FooterArea = () => {
               <h4 className="capitalize font-semibold mb-8 text-xl">Company</h4>
               <ul>
                 <li>
-                  <a
+                  <Link
                     className="text-[#ccc] font-medium text-[15px] mb-4 leading-[26px] block"
-                    href="#"
+                    to="#"
                   >
                     SEO Marketing
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     className="text-[#ccc] font-medium text-[15px] mb-4 leading-[26px] block"
-                    href="#"
+                    to="#"
                   >
                     Pay Per Click
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     className="text-[#ccc] font-medium text-[15px] mb-4 leading-[26px] block"
-                    href="#"
+                    to="#"
                   >
                     Social Media
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     className="text-[#ccc] font-medium text-[15px] mb-4 leading-[26px] block"
-                    href="#"
+                    to="#"
                   >
                     SEO Audit
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -137,36 +138,36 @@ const FooterArea = () => {
               </h4>
               <ul>
                 <li>
-                  <a
+                  <Link
                     className="text-[#ccc] font-medium text-[15px] mb-4 leading-[26px] block"
-                    href="#"
+                    to="#"
                   >
                     SEO Marketing
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     className="text-[#ccc] font-medium text-[15px] mb-4 leading-[26px] block"
-                    href="#"
+                    to="#"
                   >
                     Pay Per Click
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     className="text-[#ccc] font-medium text-[15px] mb-4 leading-[26px] block"
-                    href="#"
+                    to="#"
                   >
                     Social Media
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a
+                  <Link
                     className="text-[#ccc] font-medium text-[15px] mb-4 leading-[26px] block"
-                    href="#"
+                    to="#"
                   >
                     SEO Audit
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -179,7 +180,7 @@ const FooterArea = () => {
           <p className="text-[#ccc] text-[15px]">
             © Copyright 2021 aveit By WordPressRiver
           </p>
-          <img className="w-[140px]" src="./img/logo-light.png" alt="logo" />
+          <img className="w-[140px]" src="/img/logo-light.png" alt="logo" />
           <div className="flex items-center border border-white/20">
             <input
               className="bg-transparent border-none outline-none pl-5 font-regular text-white text-base w-[260px] border-r broder-white/20 h-[50px] placeholder:text-white placeholder:font-regular"
@@ -187,7 +188,7 @@ const FooterArea = () => {
               placeholder="Enter your e-mail"
             />
             <div className="w-[38px] h-[38px] bg-white rounded-md flex justify-center items-center mx-[10px] cursor-pointer">
-              <img className="w-5" src="./img/icons/send.png" alt="send" />
+              <img className="w-5" src="/img/icons/send.png" alt="send" />
             </div>
           </div>
         </div>

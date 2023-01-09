@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const CallToActionArea = () => {
   return (
@@ -35,18 +36,18 @@ const CallToActionArea = () => {
             </div>
           </div>
           <div className="flex w-full mt-10 lg:mt-0 lg:w-min justify-center lg:justify-start items-center gap-6 lg:gap-3">
-            <a
+            <Link
               className="inline-block py-4 px-9 border-2 border-white rounded-full text-[13px] uppercase text-white font-bold transition bg-transparent hover:bg-white hover:text-secondary min-w-[180px]"
-              href="#"
+              to="#"
             >
               CONTACT US
-            </a>
-            <a
+            </Link>
+            <Link
               className="inline-block py-4 px-9 border-2 border-white rounded-full text-[13px] uppercase text-white font-bold transition bg-transparent hover:bg-white hover:text-secondary min-w-[160px]"
-              href="#"
+              to="#"
             >
               Lets Talk
-            </a>
+            </Link>
           </div>
         </div>
       </div>

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const ServiceDetails = () => {
   return (
@@ -20,7 +21,7 @@ const ServiceDetails = () => {
               <div className="flex items-center gap-[10px]">
                 <img
                   className="w-5 opacity-50"
-                  src="./img/icons/video-camera.png"
+                  src="/img/icons/video-camera.png"
                   alt="video-camera"
                 />
                 <span className="text-base text-body">Online Event</span>
@@ -43,7 +44,7 @@ const ServiceDetails = () => {
           <div className="w-full md:w-[60%] xl:w-[70%]">
             <img
               className="w-full rounded-md"
-              src="./img/big-1.jpg"
+              src="/img/big-1.jpg"
               alt="event"
             />
 
@@ -51,13 +52,13 @@ const ServiceDetails = () => {
               <button className="flex items-center gap-2 px-6 py-1 bg-white border font-semibold cursor-pointer event-public-button transition">
                 <img
                   className="w-4"
-                  src="./img/icons/bookmark-white.png"
+                  src="/img/icons/bookmark-white.png"
                   alt="bookmark"
                 />
                 <span className="text-base text-dark">Save</span>
               </button>
               <button className="flex items-center gap-2 px-6 py-1 bg-white border font-semibold cursor-pointer event-public-button transition">
-                <img className="w-4" src="./img/icons/share.png" alt="share" />
+                <img className="w-4" src="/img/icons/share.png" alt="share" />
                 <span className="text-base text-dark">Share</span>
               </button>
             </div>
@@ -132,67 +133,67 @@ const ServiceDetails = () => {
               <div className="mt-10">
                 <div className="flex gap-[10px] mb-9">
                   <div className="h-10 w-10 rounded-full bg-light flex items-center justify-center">
-                    <img className="w-5" src="./img/icons/man.png" alt="user" />
+                    <img className="w-5" src="/img/icons/man.png" alt="user" />
                   </div>
                   <div>
                     <span>Organised by</span>
                     <h4 className="my-2 text-base font-medium">
                       Story Tellers
                     </h4>
-                    <a className="font-medium text-primary" href="#">
+                    <Link className="font-medium text-primary" to="#">
                       View Profile
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className="flex gap-[10px] mb-9">
                   <div className="h-10 w-10 rounded-full bg-light flex items-center justify-center">
-                    <img className="w-5" src="./img/icons/man.png" alt="user" />
+                    <img className="w-5" src="/img/icons/man.png" alt="user" />
                   </div>
                   <div>
                     <span>Organised by</span>
                     <h4 className="my-2 text-base font-medium">
                       Story Tellers
                     </h4>
-                    <a className="font-medium text-primary" href="#">
+                    <Link className="font-medium text-primary" to="#">
                       View Profile
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className="flex gap-[10px] mb-9">
                   <div className="h-10 w-10 rounded-full bg-light flex items-center justify-center">
-                    <img className="w-5" src="./img/icons/man.png" alt="user" />
+                    <img className="w-5" src="/img/icons/man.png" alt="user" />
                   </div>
                   <div>
                     <span>Organised by</span>
                     <h4 className="my-2 text-base font-medium">
                       Story Tellers
                     </h4>
-                    <a className="font-medium text-primary" href="#">
+                    <Link className="font-medium text-primary" to="#">
                       View Profile
-                    </a>
+                    </Link>
                   </div>
                 </div>
                 <div className="flex gap-[10px] mb-9">
                   <div className="h-10 w-10 rounded-full bg-light flex items-center justify-center">
-                    <img className="w-5" src="./img/icons/man.png" alt="user" />
+                    <img className="w-5" src="/img/icons/man.png" alt="user" />
                   </div>
                   <div>
                     <span>Organised by</span>
                     <h4 className="my-2 text-base font-medium">
                       Story Tellers
                     </h4>
-                    <a className="font-medium text-primary" href="#">
+                    <Link className="font-medium text-primary" to="#">
                       View Profile
-                    </a>
+                    </Link>
                   </div>
                 </div>
 
-                <a
-                  href="#"
+                <Link
+                  to="#"
                   className="text-base text-white py-[10px] block bg-primary hover:bg-primary/70 transition text-center rounded-md font-medium"
                 >
                   Order Now
-                </a>
+                </Link>
               </div>
               {/* <!-- list end --> */}
             </div>
