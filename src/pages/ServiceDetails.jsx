@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { BiTime } from "react-icons/bi";
 import { TfiReload } from "react-icons/tfi";
 import { Link } from "react-router-dom";
+import AddReview from "../components/Reviews/AddReview";
+import Reviews from "../components/Reviews/Reviews";
 
 const ServiceDetails = () => {
   const [packageName, setPackage] = useState("basic");
@@ -205,7 +207,7 @@ const ServiceDetails = () => {
                 )}
 
                 <Link
-                  to="#"
+                  to="/checkout/id"
                   className="text-base text-white py-[10px] block bg-primary hover:bg-primary/70 transition text-center rounded-md font-medium"
                 >
                   Order Now
@@ -217,6 +219,15 @@ const ServiceDetails = () => {
           {/* <!-- event details end --> */}
         </div>
         {/* <!-- event information end --> */}
+
+        {/* reviews */}
+        <div className="w-3/6">
+          <h3 className="mt-8 text-xl mb-8">Service Reviews (10)</h3>
+          <div className="mb-8">
+            <AddReview />
+          </div>
+          <Reviews />
+        </div>
       </div>
     </section>
   );
