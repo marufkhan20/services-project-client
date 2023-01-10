@@ -12,31 +12,6 @@ const ProjectsArea = () => {
           </h2>
         </div>
 
-        {/* <!-- project nav start --> */}
-        <nav className="mt-[60px]">
-          <ul className="flex items-center justify-center gap-1 flex-wrap">
-            <li className="border-2 font-bold py-[10px] px-[25px] rounded-full outline-none cursor-pointer transition border-[#b6d4ef] text-[#0e2258]">
-              All
-            </li>
-            <li className="border-2 border-transparent font-bold py-[10px] px-[25px] rounded-full text-[#666] outline-none cursor-pointer transition hover:border-[#b6d4ef] hover:text-[#0e2258]">
-              Development
-            </li>
-            <li className="border-2 border-transparent font-bold py-[10px] px-[25px] rounded-full text-[#666] outline-none cursor-pointer transition hover:border-[#b6d4ef] hover:text-[#0e2258]">
-              Consulting
-            </li>
-            <li className="border-2 border-transparent font-bold py-[10px] px-[25px] rounded-full text-[#666] outline-none cursor-pointer transition hover:border-[#b6d4ef] hover:text-[#0e2258]">
-              Finance
-            </li>
-            <li className="border-2 border-transparent font-bold py-[10px] px-[25px] rounded-full text-[#666] outline-none cursor-pointer transition hover:border-[#b6d4ef] hover:text-[#0e2258]">
-              Branding
-            </li>
-            <li className="border-2 border-transparent font-bold py-[10px] px-[25px] rounded-full text-[#666] outline-none cursor-pointer transition hover:border-[#b6d4ef] hover:text-[#0e2258]">
-              Capital
-            </li>
-          </ul>
-        </nav>
-        {/* <!-- project nav end --> */}
-
         {/* <!-- projects wrapper start --> */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-8 mt-12">
           <div class="single-project">

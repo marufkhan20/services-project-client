@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 const Login = () => {
   return (
     <main>
-      <div className="container mx-auto mt-14">
+      <div className="container mx-auto my-14">
         <div className="w-3/6 mx-auto shadow-md p-10 rounded-lg border">
           <h2 className="text-2xl">Sign up to Trusted Tool</h2>
 

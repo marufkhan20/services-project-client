@@ -5,6 +5,7 @@ import Navigation from "./components/common/Navigation";
 import Checkout from "./pages/Checkout";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
+import OrderView from "./pages/OrderView";
 import Profile from "./pages/Profile";
 import Register from "./pages/Register";
 import ServiceDetails from "./pages/ServiceDetails";
@@ -25,6 +26,7 @@ function App() {
         <Route path="/services/:id" element={<ServiceDetails />} />
         <Route path="/profile" element={<Profile />} />
         <Route path="/checkout/:id" element={<Checkout />} />
+        <Route path="/inbox/:orderId/:userId" element={<OrderView />} />
 
         {/* admin routes */}
         <Route path="/admin" element={<AdminHome />} />
