@@ -4,11 +4,23 @@ import { Provider } from "react-redux";
 import { BrowserRouter } from "react-router-dom";
 import App from "./App";
 import { store } from "./app/store";
+import { userLoggedIn } from "./features/auth/authSlice";
 import "./index.css";
 import reportWebVitals from "./reportWebVitals";
 
 const container = document.getElementById("root");
 const root = createRoot(container);
+
+const localAuth = localStorage?.getItem("auth");
+
+if (localAuth) {
+  const auth = JSON.parse(localAuth);
+  if (auth?.accessToken && auth?.user) {
+    store.dispatch(
+      userLoggedIn({ accessToken: auth.accessToken, user: auth.user })
+    );
+  }
+}
 
 root.render(
   <React.StrictMode>
