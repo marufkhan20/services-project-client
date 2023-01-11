@@ -1,7 +1,96 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { toast } from "react-hot-toast";
 import { AiOutlineClose } from "react-icons/ai";
+import { useUpdateProfileMutation } from "../../features/user/userApi";
+import useUpdateUser from "../../hooks/useUpdateUser";
 
-const EditProfileModal = ({ editable, setEditable }) => {
+const EditProfileModal = ({ editable, setEditable, userInfo }) => {
+  const [firstName, setFirstName] = useState();
+  const [lastName, setLastName] = useState();
+  const [bio, setBio] = useState();
+  const [email, setEmail] = useState();
+  const [phone, setPhone] = useState();
+  const [website, setWebsite] = useState();
+  const [facebook, setFacebook] = useState();
+  const [instagram, setInstagram] = useState();
+  const [twitter, setTwitter] = useState();
+  const [youtube, setYoutube] = useState();
+  const [linkedin, setLinkedin] = useState();
+  const [address, setAddress] = useState();
+  const [address2, setAddress2] = useState();
+  const [city, setCity] = useState();
+  const [state, setState] = useState();
+  const [zipCode, setZipCode] = useState();
+  const [country, setCountry] = useState();
+
+  const updateUser = useUpdateUser();
+
+  const { profile } = userInfo || {};
+
+  useEffect(() => {
+    if (profile) {
+      setFirstName(profile?.firstName);
+      setLastName(profile?.lastName);
+      setBio(profile?.bio);
+      setWebsite(profile?.website);
+      setFacebook(profile?.facebook);
+      setInstagram(profile?.instagram);
+      setTwitter(profile?.twitter);
+      setYoutube(profile?.youtube);
+      setLinkedin(profile?.linkedin);
+      setAddress(profile?.address);
+      setAddress2(profile?.address2);
+      setCity(profile?.city);
+      setCountry(profile?.country);
+      setZipCode(profile?.zipCode);
+      setCountry(profile?.country);
+      setState(profile?.state);
+      setEmail(userInfo?.email);
+      setPhone(profile?.phone);
+    }
+  }, [profile, userInfo]);
+
+  // udpate profile
+  const [updateProfile, { data: updatedProfile }] = useUpdateProfileMutation();
+
+  // get update profile
+  useEffect(() => {
+    if (updatedProfile?._id) {
+      updateUser(updatedProfile);
+      toast.success(`Profile Update Successfully`);
+      setEditable(false);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [updatedProfile, setEditable]);
+
+  // handle submit
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    // update profile
+    updateProfile({
+      userId: userInfo?._id,
+      data: {
+        firstName,
+        lastName,
+        bio,
+        email,
+        phone,
+        website,
+        facebook,
+        instagram,
+        twitter,
+        youtube,
+        linkedin,
+        address,
+        address2,
+        city,
+        state,
+        zipCode,
+        country,
+      },
+    });
+  };
   return (
     <div
       className={`bg-black/50 absolute top-0 left-0 right-0 bottom-0 w-full h-fit transition-all duration-500 pb-6 ${
@@ -21,7 +110,7 @@ const EditProfileModal = ({ editable, setEditable }) => {
 
         {/* edit form */}
         <div className="py-6 px-5">
-          <form className="flex flex-col gap-5">
+          <form onSubmit={handleSubmit} className="flex flex-col gap-5">
             <div className="flex gap-6">
               <div className="w-full">
                 <label htmlFor="firstName" className="font-bold text-sm">
@@ -32,6 +121,9 @@ const EditProfileModal = ({ editable, setEditable }) => {
                   id="firstName"
                   type="text"
                   placeholder="John"
+                  required
+                  value={firstName}
+                  onChange={(e) => setFirstName(e.target.value)}
                 />
               </div>
               <div className="w-full">
@@ -42,7 +134,10 @@ const EditProfileModal = ({ editable, setEditable }) => {
                   className="block w-full bg-[#F9F9F9] py-[10px] px-3 border rounded-[4px] font-regular text-sm text-[#717171] outline-none focus:ring-1 mt-3"
                   id="lastName"
                   type="text"
+                  required
                   placeholder="Doe"
+                  value={lastName}
+                  onChange={(e) => setLastName(e.target.value)}
                 />
               </div>
             </div>
@@ -54,6 +149,9 @@ const EditProfileModal = ({ editable, setEditable }) => {
               <textarea
                 className="block w-full bg-[#F9F9F9] py-[10px] px-3 border rounded-[4px] font-regular text-sm text-[#717171] outline-none focus:ring-1 mt-3 h-24"
                 id="bio"
+                type="text"
+                value={bio}
+                onChange={(e) => setBio(e.target.value)}
               />
             </div>
 
@@ -68,6 +166,7 @@ const EditProfileModal = ({ editable, setEditable }) => {
                   type="email"
                   disabled
                   placeholder="email"
+                  value={email}
                 />
               </div>
               <div className="w-full">
@@ -79,6 +178,8 @@ const EditProfileModal = ({ editable, setEditable }) => {
                   id="phone"
                   type="text"
                   placeholder="Phone"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
                 />
               </div>
             </div>
@@ -93,6 +194,8 @@ const EditProfileModal = ({ editable, setEditable }) => {
                   id="facebook"
                   type="url"
                   placeholder="facebook"
+                  value={facebook}
+                  onChange={(e) => setFacebook(e.target.value)}
                 />
               </div>
               <div className="w-full">
@@ -104,6 +207,8 @@ const EditProfileModal = ({ editable, setEditable }) => {
                   id="website"
                   type="url"
                   placeholder="website"
+                  value={website}
+                  onChange={(e) => setWebsite(e.target.value)}
                 />
               </div>
             </div>
@@ -118,6 +223,8 @@ const EditProfileModal = ({ editable, setEditable }) => {
                   id="instagram"
                   type="url"
                   placeholder="instagram"
+                  value={instagram}
+                  onChange={(e) => setInstagram(e.target.value)}
                 />
               </div>
               <div className="w-full">
@@ -129,6 +236,8 @@ const EditProfileModal = ({ editable, setEditable }) => {
                   id="twitter"
                   type="url"
                   placeholder="twitter"
+                  value={twitter}
+                  onChange={(e) => setTwitter(e.target.value)}
                 />
               </div>
             </div>
@@ -142,6 +251,8 @@ const EditProfileModal = ({ editable, setEditable }) => {
                   id="linkedin"
                   type="url"
                   placeholder="linkedin"
+                  value={linkedin}
+                  onChange={(e) => setLinkedin(e.target.value)}
                 />
               </div>
               <div className="w-full">
@@ -153,6 +264,8 @@ const EditProfileModal = ({ editable, setEditable }) => {
                   id="youtube"
                   type="url"
                   placeholder="youtube"
+                  value={youtube}
+                  onChange={(e) => setYoutube(e.target.value)}
                 />
               </div>
             </div>
@@ -169,6 +282,8 @@ const EditProfileModal = ({ editable, setEditable }) => {
                   id="address1"
                   type="text"
                   placeholder="Address 1"
+                  value={address}
+                  onChange={(e) => setAddress(e.target.value)}
                 />
               </div>
               <div className="w-full">
@@ -180,6 +295,8 @@ const EditProfileModal = ({ editable, setEditable }) => {
                   id="address2"
                   type="text"
                   placeholder="Address 2"
+                  value={address2}
+                  onChange={(e) => setAddress2(e.target.value)}
                 />
               </div>
             </div>
@@ -193,6 +310,8 @@ const EditProfileModal = ({ editable, setEditable }) => {
                   id="Country"
                   type="text"
                   placeholder="Country"
+                  value={country}
+                  onChange={(e) => setCountry(e.target.value)}
                 />
               </div>
               <div className="w-full">
@@ -204,6 +323,8 @@ const EditProfileModal = ({ editable, setEditable }) => {
                   id="State"
                   type="text"
                   placeholder="State"
+                  value={state}
+                  onChange={(e) => setState(e.target.value)}
                 />
               </div>
             </div>
@@ -217,6 +338,8 @@ const EditProfileModal = ({ editable, setEditable }) => {
                   id="City"
                   type="text"
                   placeholder="City"
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
                 />
               </div>
               <div className="w-full">
@@ -228,6 +351,8 @@ const EditProfileModal = ({ editable, setEditable }) => {
                   id="ZipCode"
                   type="text"
                   placeholder="Zip Code"
+                  value={zipCode}
+                  onChange={(e) => setZipCode(e.target.value)}
                 />
               </div>
             </div>

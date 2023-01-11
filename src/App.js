@@ -1,5 +1,9 @@
-import { Route, Routes } from "react-router-dom";
+import { Toaster } from "react-hot-toast";
+import { Route, Routes, useLocation } from "react-router-dom";
 import "./App.css";
+import AdminPrivateRoute from "./components/AdminPrivateRoute";
+import PrivateRoute from "./components/PriveRoute";
+import PublicRoute from "./components/PublicRoute";
 import FooterArea from "./components/common/FooterArea";
 import Navigation from "./components/common/Navigation";
 import Checkout from "./pages/Checkout";
@@ -9,31 +13,106 @@ import OrderView from "./pages/OrderView";
 import Profile from "./pages/Profile";
 import Register from "./pages/Register";
 import ServiceDetails from "./pages/ServiceDetails";
+import VerifyAccount from "./pages/VerifyAccount";
 import AddService from "./pages/admin/AddService";
 import AdminHome from "./pages/admin/Home";
 import Services from "./pages/admin/Services";
+import UserList from "./pages/admin/UserList";
 
 function App() {
-  // const { pathname } = useLocation();
+  const { pathname } = useLocation();
   return (
     <>
+      <Toaster />
       <Navigation />
       <Routes>
         {/* user routes */}
         <Route path="/" element={<Home />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/login" element={<Login />} />
+        <Route
+          path="/register"
+          element={
+            <PublicRoute>
+              <Register />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/verify-account/:userId/:profileId"
+          element={
+            <PublicRoute>
+              <VerifyAccount />
+            </PublicRoute>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <PublicRoute>
+              <Login />
+            </PublicRoute>
+          }
+        />
         <Route path="/services/:id" element={<ServiceDetails />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/checkout/:id" element={<Checkout />} />
-        <Route path="/inbox/:orderId/:userId" element={<OrderView />} />
+        <Route
+          path="/profile/:userId"
+          element={
+            <PrivateRoute>
+              <Profile />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/checkout/:id"
+          element={
+            <PrivateRoute>
+              <Checkout />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/inbox/:orderId/:userId"
+          element={
+            <PrivateRoute>
+              <OrderView />
+            </PrivateRoute>
+          }
+        />
 
         {/* admin routes */}
-        <Route path="/admin" element={<AdminHome />} />
-        <Route path="/admin/services" element={<Services />} />
-        <Route path="/admin/services/add-service" element={<AddService />} />
+        <Route
+          path="/admin"
+          element={
+            <AdminPrivateRoute>
+              <AdminHome />
+            </AdminPrivateRoute>
+          }
+        />
+        <Route
+          path="/admin/services"
+          element={
+            <AdminPrivateRoute>
+              <Services />
+            </AdminPrivateRoute>
+          }
+        />
+        <Route
+          path="/admin/services/add-service"
+          element={
+            <AdminPrivateRoute>
+              <AddService />
+            </AdminPrivateRoute>
+          }
+        />
+        <Route
+          path="/admin/users"
+          element={
+            <AdminPrivateRoute>
+              <UserList />
+            </AdminPrivateRoute>
+          }
+        />
       </Routes>
-      <FooterArea />
+      {!pathname.includes("/admin") && <FooterArea />}
     </>
   );
 }

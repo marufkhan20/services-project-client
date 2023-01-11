@@ -28,7 +28,7 @@ const BannerArea = () => {
                 get details
               </Link>
             </div>
-            <div className="bg-white text-[#0e2b3d] py-[60px] px-9 z-50 relative rounded-xl form w-full lg:w-2/5">
+            <div className="bg-white text-[#0e2b3d] py-[60px] px-9 z-40 relative rounded-xl form w-full lg:w-2/5">
               <h3 className="text-2xl text-center mb-5">Appointment</h3>
               <p className="text-[15px] leading-[26px] mx-auto text-[#0e2b3d] mb-14 w-[70%] text-center">
                 Country man his pressed shewing. No gate dare rose he. Eyes year

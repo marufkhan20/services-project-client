@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-const HomeTab = () => {
+const HomeTab = ({ userInfo }) => {
   return (
     <div className="p-5 bg-white shadow-sm mt-6 rounded-md flex items-center gap-3">
       <img

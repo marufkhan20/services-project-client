@@ -1,9 +1,11 @@
 import React, { useState } from "react";
+import { useParams } from "react-router-dom";
 import AboutTab from "../components/Profile/AboutTab";
 import HomeTab from "../components/Profile/HomeTab";
 import ProfileInfo from "../components/Profile/ProfileInfo";
 import SettingTab from "../components/Profile/SettingTab";
 import Tab from "../components/Profile/Tab";
+import { useGetUserByIdQuery } from "../features/user/userApi";
 
 const tabs = {
   1: HomeTab,
@@ -13,8 +15,13 @@ const tabs = {
 
 const Profile = () => {
   const [activeTab, setActiveTab] = useState(1);
-
   const TabComponent = tabs[activeTab];
+
+  const { userId } = useParams();
+
+  // const { user } = useSelector((state) => state.auth || {});
+
+  const { data: userInfo } = useGetUserByIdQuery(userId);
   return (
     <main>
       <header
@@ -26,11 +33,11 @@ const Profile = () => {
         <div className="container mx-auto">
           <div className="flex justify-between gap-5">
             <div className="w-[30%]">
-              <ProfileInfo />
+              <ProfileInfo userInfo={userInfo} />
             </div>
             <div className="w-[70%]">
               <Tab activeTab={activeTab} tabControl={setActiveTab} />
-              <TabComponent />
+              <TabComponent userInfo={userInfo} />
             </div>
           </div>
         </div>

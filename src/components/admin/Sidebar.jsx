@@ -35,7 +35,7 @@ const Sidebar = () => {
         </li>
         <li>
           <Link
-            to="#"
+            to="/admin/users"
             className="flex items-center gap-5 px-5 py-3 transition hover:bg-light text-base font-medium hover:text-primary"
           >
             <HiUsers />
